@@ -3,6 +3,17 @@ import { type Forecast, ForecastType, WeatherType } from '../models/Weather'
 const hour = 3600000 // one hour in milliseconds
 export const hourly: Forecast[] = [
   {
+    date: new Date(Date.now() - (hour * 2)),
+    weather: WeatherType.Cloudy,
+    probability: 30,
+    temperature: 19,
+    high: 24,
+    low: 18,
+    type: ForecastType.Hourly,
+    location: 'Montreal, Canada',
+    icon: require('../assets/forecast/sun_rain.png')
+  },
+  {
     date: new Date(Date.now() - hour),
     weather: WeatherType.Sunny,
     probability: 30,

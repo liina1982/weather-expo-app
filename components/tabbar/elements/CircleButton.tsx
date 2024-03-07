@@ -3,16 +3,18 @@ import { Canvas, Circle, Line, LinearGradient, Shadow, vec } from '@shopify/reac
 
 interface CircleButtonProps {
   radius: number
+  pressed: boolean
 }
 
-const CircleButton = ({ radius }: CircleButtonProps): JSX.Element => {
+const CircleButton = ({ radius, pressed }: CircleButtonProps): JSX.Element => {
   const diameter = radius * 2
   return (
     <Canvas style={{ width: diameter, height: diameter }}>
         <Circle cx={radius} cy={radius} r={radius}>
             <LinearGradient
                 start={vec(0, 0)}
-                end={vec(diameter, diameter)} colors={['#f5f5f9', '#DADFE7']} />
+                end={vec(diameter, diameter)}
+                colors={!pressed ? ['#f5f5f9', '#DADFE7'] : ['#BBBFC7', '#FFFFFF']} />
             <Shadow dx={1} dy={1} blur={0.5} color={'white'} inner />
         </Circle>
         <Line
